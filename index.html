@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>A simple map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<div id='map'></div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoiY3J1emluNzN2dyIsImEiOiI3RDdhUi1NIn0.jaEqREZw7QQMRafKPNBdmA';
+var map = L.mapbox.map('map', 'cruzin73vw.4aiw9udi')
+    .setView([34.047415, -118.219489], 12);
+
+var routes="data/redcar.geojson";    
+    
+//Style Routes and add to Map
+var featureLayer = L.mapbox.featureLayer(routes,{
+    style:{
+        color: "#f28280",
+        weight: 10,
+        opacity:.5
+        },
+}).addTo(map);    
+</script>
+</body>
+</html>
